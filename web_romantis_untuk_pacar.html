@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Cintaku ❤️</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #fff0f5 0%, #ffd1dc 50%, #fecdd3 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #5c2030;
+            user-select: none;
+        }
+
+        .font-great-vibes {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .font-dancing {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Glassmorphism Styling */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.95);
+            box-shadow: 0 12px 35px rgba(225, 29, 72, 0.12);
+        }
+
+        .glass-card-subtle {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        /* Floating Hearts Layer */
+        .heart-particle {
+            position: fixed;
+            pointer-events: none;
+            animation: floatUp linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(105vh) scale(0.5) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.85;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.3) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Click Heart Effect Animation */
+        .click-heart {
+            position: fixed;
+            pointer-events: none;
+            animation: heartBurst 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            z-index: 9999;
+        }
+
+        @keyframes heartBurst {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -120px) scale(1.6) rotate(25deg);
+            }
+        }
+
+        /* Pulsing Glow Animation */
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(244, 63, 94, 0.25); }
+            50% { box-shadow: 0 0 35px rgba(244, 63, 94, 0.55); }
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 3s infinite;
+        }
+    </style>
+</head>
+<body class="relative flex flex-col justify-between min-h-screen py-8 px-4 sm:px-6" onclick="spawnClickHeart(event)">
+
+    <!-- Background Floating Hearts Container -->
+    <div id="heartsContainer" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <main class="max-w-xl mx-auto w-full relative z-10 space-y-6 my-auto">
+
+        <!-- Header Banner Section -->
+        <header class="glass-card rounded-3xl p-6 md:p-8 text-center relative overflow-hidden">
+            <div class="absolute -top-12 -right-12 w-32 h-32 bg-rose-200 rounded-full blur-2xl opacity-60"></div>
+            <div class="absolute -bottom-12 -left-12 w-32 h-32 bg-pink-200 rounded-full blur-2xl opacity-60"></div>
+
+            <span class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-rose-100/90 text-rose-700 rounded-full text-xs font-semibold tracking-wider uppercase mb-3 border border-rose-200/50">
+                <i class="fa-solid fa-sparkles text-rose-500"></i>
+                Kisah Indah Kita
+                <i class="fa-solid fa-sparkles text-rose-500"></i>
+            </span>
+
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-great-vibes text-rose-600 font-bold mb-3 drop-shadow-sm">
+                Untukmu, Pemilik Hati ❤️
+            </h1>
+
+            <p class="text-rose-900/80 text-xs sm:text-sm leading-relaxed max-w-md mx-auto font-medium">
+                "Di antara miliaran jiwa di bumi, hatiku memilihmu tanpa ragu sejak detik pertama kita melangkah bersama."
+            </p>
+        </header>
+
+        <!-- Relationship Counter Card -->
+        <section class="glass-card rounded-3xl p-6 text-center pulse-glow relative overflow-hidden">
+            <div class="flex items-center justify-center gap-2 mb-1">
+                <i class="fa-solid fa-heart text-rose-500 animate-bounce text-sm"></i>
+                <h2 class="text-base sm:text-lg font-bold text-rose-800 tracking-wide uppercase">
+                    Kita Telah Bersama Selama
+                </h2>
+                <i class="fa-solid fa-heart text-rose-500 animate-bounce text-sm"></i>
+            </div>
+            <p class="text-xs text-rose-500/90 mb-5 font-semibold">Sejak Hari Istimewa: 22 September 2026</p>
+
+            <!-- Counter Timer Grid -->
+            <div class="grid grid-cols-4 gap-2 sm:gap-3">
+                <div class="bg-white/90 rounded-2xl p-3 shadow-sm border border-rose-100/80">
+                    <span id="days" class="text-2xl sm:text-3xl font-extrabold text-rose-600 block">0</span>
+                    <span class="text-[10px] sm:text-xs text-rose-900/60 font-bold uppercase tracking-wider">Hari</span>
+                </div>
+                <div class="bg-white/90 rounded-2xl p-3 shadow-sm border border-rose-100/80">
+                    <span id="hours" class="text-2xl sm:text-3xl font-extrabold text-rose-600 block">00</span>
+                    <span class="text-[10px] sm:text-xs text-rose-900/60 font-bold uppercase tracking-wider">Jam</span>
+                </div>
+                <div class="bg-white/90 rounded-2xl p-3 shadow-sm border border-rose-100/80">
+                    <span id="minutes" class="text-2xl sm:text-3xl font-extrabold text-rose-600 block">00</span>
+                    <span class="text-[10px] sm:text-xs text-rose-900/60 font-bold uppercase tracking-wider">Menit</span>
+                </div>
+                <div class="bg-white/90 rounded-2xl p-3 shadow-sm border border-rose-100/80">
+                    <span id="seconds" class="text-2xl sm:text-3xl font-extrabold text-rose-600 block">00</span>
+                    <span class="text-[10px] sm:text-xs text-rose-900/60 font-bold uppercase tracking-wider">Detik</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Romantic Poetry & Letter Box -->
+        <section class="glass-card rounded-3xl p-6 md:p-8 space-y-4">
+            <div class="text-center">
+                <span class="text-rose-500 text-2xl"><i class="fa-solid fa-feather-pointed"></i></span>
+                <h3 class="text-3xl sm:text-4xl font-great-vibes text-rose-700 font-bold mt-1">Ungkapan Ketulusan</h3>
+            </div>
+
+            <div class="space-y-3 text-rose-900/90 text-sm sm:text-base leading-relaxed italic text-center font-serif">
+                <p class="bg-white/60 p-4 rounded-2xl border border-rose-100 shadow-sm">
+                    "Terima kasih telah hadir dan menjadikan tanggal 22 September sebagai salah satu hari paling indah dalam hidupku. Bersamamu, hal-hal sederhana berubah menjadi momen yang begitu luar biasa."
+                </p>
+                <p class="bg-white/60 p-4 rounded-2xl border border-rose-100 shadow-sm">
+                    "Mungkin kita baru menapaki awal perjalanan ini, namun rasa nyaman dan bahagia yang kau bawa membuatku yakin bahwa bersamamu adalah tempat terbaik bagi hatiku bersandar."
+                </p>
+            </div>
+        </section>
+
+        <!-- Interactive Quotes Generator -->
+        <section class="glass-card rounded-3xl p-6 text-center space-y-4">
+            <h3 class="text-2xl sm:text-3xl font-great-vibes text-rose-700 font-bold">Mengapa Aku Sangat Bersyukur Memilikimu? 💕</h3>
+            
+            <div class="bg-white/90 rounded-2xl p-5 shadow-inner border border-rose-100 min-h-[110px] flex items-center justify-center">
+                <p id="loveReason" class="text-rose-800 text-sm sm:text-base font-medium leading-relaxed transition-all duration-300">
+                    "Karena senyumanmu selalu berhasil menenangkan pikiranku, bahkan di hari terberat sekalipun."
+                </p>
+            </div>
+
+            <button onclick="changeReason(event)" class="inline-flex items-center gap-2 bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white text-xs sm:text-sm font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all transform active:scale-95">
+                <i class="fa-solid fa-rotate-right"></i>
+                <span>Alasan Lainnya Hari Ini</span>
+            </button>
+        </section>
+
+        <!-- Interactive Secret Love Letter Trigger -->
+        <section class="text-center">
+            <button onclick="openSurprise(event)" class="w-full glass-card rounded-2xl p-5 text-rose-700 font-bold text-base hover:bg-rose-500 hover:text-white transition-all duration-300 shadow-md border border-rose-200/80 flex items-center justify-center gap-3 group">
+                <i class="fa-solid fa-envelope-open-text text-xl text-rose-500 group-hover:text-white transition-colors animate-bounce"></i>
+                <span>Klik Untuk Membuka Surat Rahasia 💌</span>
+            </button>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-xs text-rose-900/70 mt-8 mb-2 relative z-10 font-medium">
+        Dibuat dengan segenap rasa cinta ❤️ khusus untukmu. <br>
+        <span class="text-[10px] text-rose-800/50">(Klik di mana saja untuk memunculkan efek cinta ✨)</span>
+    </footer>
+
+    <!-- Secret Love Letter Modal -->
+    <div id="surpriseModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-rose-950/40 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+        <div class="glass-card bg-white/95 rounded-3xl max-w-md w-full p-6 sm:p-8 text-center relative transform scale-95 transition-transform duration-300 border-2 border-rose-200 shadow-2xl">
+            
+            <button onclick="closeSurprise(event)" class="absolute top-4 right-4 text-rose-400 hover:text-rose-600 text-xl font-bold w-9 h-9 flex items-center justify-center rounded-full bg-rose-50 transition">
+                &times;
+            </button>
+            
+            <div class="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4 text-rose-500 text-3xl shadow-inner">
+                💌
+            </div>
+
+            <h3 class="text-3xl sm:text-4xl font-great-vibes text-rose-700 font-bold mb-3">Janji & Harapanku</h3>
+            
+            <div class="text-rose-900/90 text-xs sm:text-sm leading-relaxed mb-6 text-left space-y-3 font-sans">
+                <p>
+                    <strong>Sayangku,</strong>
+                </p>
+                <p>
+                    Sejak tanggal 22 September kemarin, hatiku telah menemukan tempat terbaik untuk pulang. Terima kasih telah menerimaku dengan segala kekuranganku, dan memberikan kehangatan di setiap harinya.
+                </p>
+                <p>
+                    Aku berjanji akan terus berusaha memberikan yang terbaik untukmu, mendengarkan keluh kesahmu, merayakan setiap kebahagiaanmu, dan berdiri di sampingmu melalui tantangan apa pun di depan nanti.
+                </p>
+                <p class="font-semibold text-rose-700 text-center pt-2">
+                    "I love you today, tomorrow, and forever." 🥰❤️
+                </p>
+            </div>
+
+            <button onclick="closeSurprise(event)" class="w-full bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-semibold py-3 rounded-2xl text-sm shadow-md transition transform active:scale-95">
+                Peluk Dulu Dari Jauh 🤗
+            </button>
+        </div>
+    </div>
+
+    <script>
+        /* --- Relationship Timer Logic (Started on 22 September 2026 00:00:00) --- */
+        const startDate = new Date("2026-09-22T00:00:00").getTime();
+
+        function updateCounter() {
+            const now = new Date().getTime();
+            const difference = now - startDate;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days;
+                document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+            }
+        }
+
+        setInterval(updateCounter, 1000);
+        updateCounter();
+
+        /* --- Romantic Reasons Carousel --- */
+        const romanticReasons = [
+            "\"Karena senyumanmu selalu berhasil menenangkan pikiranku, bahkan di hari terberat sekalipun.\"",
+            "\"Karena kamu mengajariku bahwa cinta tak perlu rumit, cukup dengan saling mengerti dan mendukung.\"",
+            "\"Tawamu adalah suara favoritku di dunia ini.\"",
+            "\"Karena bersamamu, aku tidak pernah takut menjadi diriku sendiri yang seutuhnya.\"",
+            "\"Kamu adalah hadiah paling indah di bulan September ini dan untuk selamanya.\"",
+            "\"Setiap kali aku melihatmu, aku selalu bersyukur tanggal 22 September itu pernah ada.\""
+        ];
+
+        let currentReasonIndex = 0;
+
+        function changeReason(event) {
+            if (event) event.stopPropagation();
+            const reasonText = document.getElementById("loveReason");
+            reasonText.style.opacity = '0';
+            
+            setTimeout(() => {
+                currentReasonIndex = (currentReasonIndex + 1) % romanticReasons.length;
+                reasonText.innerText = romanticReasons[currentReasonIndex];
+                reasonText.style.opacity = '1';
+            }, 300);
+        }
+
+        /* --- Floating Hearts Particle Generator --- */
+        function createBackgroundHeart() {
+            const container = document.getElementById('heartsContainer');
+            if (!container) return;
+
+            const heart = document.createElement('div');
+            heart.classList.add('heart-particle');
+
+            const icons = ['❤️', '💖', '🌹', '✨', '💕', '🌸', '🤍'];
+            heart.innerText = icons[Math.floor(Math.random() * icons.length)];
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = (Math.random() * 14 + 12) + "px";
+            heart.style.animationDuration = (Math.random() * 4 + 4) + "s";
+
+            container.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        setInterval(createBackgroundHeart, 450);
+
+        /* --- Click Event: Spawn Hearts at Cursor Position --- */
+        function spawnClickHeart(event) {
+            const icons = ['❤️', '💖', '✨', '💕', '🌸'];
+            const heart = document.createElement('div');
+            heart.classList.add('click-heart');
+            heart.innerText = icons[Math.floor(Math.random() * icons.length)];
+            heart.style.left = `${event.clientX}px`;
+            heart.style.top = `${event.clientY}px`;
+            heart.style.fontSize = `${Math.floor(Math.random() * 16 + 20)}px`;
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 900);
+        }
+
+        /* --- Modal Control Logic --- */
+        function openSurprise(event) {
+            if (event) event.stopPropagation();
+            const modal = document.getElementById("surpriseModal");
+            modal.classList.remove("hidden");
+            setTimeout(() => {
+                modal.classList.remove("opacity-0");
+                modal.querySelector("div").classList.remove("scale-95");
+                modal.querySelector("div").classList.add("scale-100");
+            }, 10);
+        }
+
+        function closeSurprise(event) {
+            if (event) event.stopPropagation();
+            const modal = document.getElementById("surpriseModal");
+            modal.querySelector("div").classList.remove("scale-100");
+            modal.querySelector("div").classList.add("scale-95");
+            modal.classList.add("opacity-0");
+            setTimeout(() => {
+                modal.classList.add("hidden");
+            }, 300);
+        }
+    </script>
+</body>
+</html>
